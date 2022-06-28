@@ -1,0 +1,18 @@
+# Ignorando itens não necessarios de serem postados
+
+node_modules/
+jspm_packages/
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+.out
+.storybook-out
+storybook-static
+.vscode-test
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+*.code-workspace
+.env
+package-lock.json
