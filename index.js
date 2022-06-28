@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 
+
 // Setando como json
 app.use(express.json());
 
@@ -18,7 +19,7 @@ app.get('/usuarios/:name', (req, res) => {
     res.json({ "Nome": name });
 });
 
-app.post('/usuarios', async(req, res) => {
+app.post('/usuarios', async (req, res) => {
     var body = await req.body;
     // Futura verificação de email existente!
     if (body.email.includes('sexo@gmail.com')) return res.json({ "Error": "Email Ja temn seu lixo burro!" });
@@ -28,6 +29,6 @@ app.post('/usuarios', async(req, res) => {
 
 // Inicializando o servidor
 const PORT = process.env.PORT || 6512;
-app.listen(PORT , () => {
+app.listen(PORT, () => {
     console.log(`Api online na porta: ${PORT}`);
 });
