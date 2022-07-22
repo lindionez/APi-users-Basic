@@ -1,13 +1,13 @@
 /****** MODULOS ******/
 const express = require('express');
 const app = express();
-const users = require('./dataBase/users');
+const users = require('./dataBase/controlers/users');
 // Setando como json
 app.use(express.json());
 
 // Rotas
-app.post('/usuarios', users.insert);
-app.put('/update/:id', users.update);
+app.post('/database/usuarios', users.insert);
+app.put('/database/update/:id', users.update);
 
 
 // Inicializando o servidor

@@ -1,4 +1,4 @@
-const connection = require('../dataBase/mysql');
+const connection = require('../mysql');
 
 module.exports = {
     async insert(req, res) {
@@ -12,6 +12,7 @@ module.exports = {
             res.json(respose);
         } catch (error) {
             console.log(error);
+            res.json({ status : "error"});
         }
 
     },
@@ -28,6 +29,7 @@ module.exports = {
             res.json(respose);
         } catch (error) {
             console.log(error);
+            res.json({ status : "error"});
         }
     },
     
