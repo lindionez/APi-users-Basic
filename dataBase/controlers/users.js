@@ -57,9 +57,9 @@ module.exports = {
         var nome = req.params.nome;
         var token = req.params.token;
         try {
+            if (token != key) return await res.json({ error : "token incorreto"});
             var respose = await connection.query('DELETE FROM users WHERE nome = ?', [nome]);
             if (respose[0].affectedRows == 0) return await res.json({ error : "usuario não encontrado"});
-            if (token != key) return await res.json({ error : "token incorreto"});
             res.json(respose);
         } catch (error) {
             console.log(error);
