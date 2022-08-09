@@ -1,5 +1,12 @@
-const connection = require('../mysql');
+const mysql = require('mysql2/promise');
 const { key } = require('../config.json');
+
+var connection = mysql.createPool({
+    host: (process.env.MYSQL_HOST) ? process.env.MYSQL_HOST : 'localhost',
+    user: (process.env.MYSQL_USER) ? process.env.MYSQL_USER : 'root',
+    password: (process.env.MYSQL_PASSWORD) ? process.env.MYSQL_PASSWROD : '',
+    database: (process.env.MYSQL_DATABASE) ? process.env.MYSQL_DATABASE : 'apidouglas'
+});
 
 module.exports = {
     async insert(req, res) {
