@@ -13,7 +13,7 @@ app.use(express.json());
 app.post('/database/usuarios/adicionar', authenticateApi , users.insert);
 app.put('/database/usuarios/update/:id', authenticateApi , users.update);
 app.get('/database/usuarios/getall', authenticateApi , users.findAll);
-app.get('/database/usuarios/getbyname/name=:nome&&senha=:senha', authenticateApi , users.login);
+app.get('/database/usuarios/getbyname', authenticateApi , users.login);
 app.delete('/database/usuarios/delete/token=:token&&name=:nome', authenticateApi , users.delete);
 
 

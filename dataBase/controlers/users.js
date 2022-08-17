@@ -49,11 +49,14 @@ module.exports = {
         }
     },
     async login(req, res) {
-        var nome = req.params.nome;
-        var senha = req.params.senha;
+        const auth = req.headers.authorization;
+        var tmp = auth.split(' ');
+        var buf = Buffer.from(tmp[1], 'base64');
+        var plain_auth = buf.toString();
+        var creds = plain_auth.split(':');
+        var nome = creds[0];
         try {
             var respose = await connection.query('SELECT * FROM users WHERE nome = ?', [nome]);
-            if (respose[0][0].senha != senha) return await res.json({ error : "senha incorreta"});
             await res.json(respose[0]);
         } catch (error) {
             console.log(error);
